@@ -10,7 +10,10 @@
 
 ### Запуск
 
-`docker-compose up --build`
+```bash
+cp .env.example .env
+docker-compose up --build
+```
 
 ### Миграции
 
