@@ -1,0 +1,42 @@
+{
+  "name": "test_starpets",
+  "version": "1.0.0",
+  "description": "Тестовое задание для вакансии Node.JS Backend dev в STARPETS.GG",
+  "main": "bin/start.js",
+  "scripts": {
+    "test:load": "node __tests__/autocannon.js",
+    "seed:reset": "npx sequelize-cli db:seed:undo:all && npx sequelize-cli db:seed:all",
+    "migration:reset": "npx sequelize-cli db:migrate:undo:all && npx sequelize-cli db:migrate",
+    "db:reset": "npx sequelize-cli db:seed:undo:all && npx sequelize-cli db:migrate:undo:all && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
+    "start": "npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all && node --env-file=.env bin/start.js",
+    "dev": "nodemon --env-file=.env bin/start.js"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/etoyatik/starpets.git"
+  },
+  "keywords": [
+    "express",
+    "pg",
+    "sequelize"
+  ],
+  "author": "@etoyatik, Ростислав Сидоренко",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/etoyatik/starpets/issues"
+  },
+  "homepage": "https://github.com/etoyatik/starpets#readme",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "express": "^5.1.0",
+    "pg": "^8.14.1",
+    "sequelize": "^6.37.7",
+    "sequelize-cli": "^6.6.2",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "autocannon": "^8.0.0",
+    "nodemon": "^3.1.9"
+  }
+}
